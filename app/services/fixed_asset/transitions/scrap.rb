@@ -35,7 +35,7 @@ class FixedAsset
 
         def split_depreciation!(depreciation, date)
           total_amount = depreciation.amount
-          period = AccountancyPeriod.new(depreciation.started_on, depreciation.stopped_on)
+          period = Accountancy::Period.new(depreciation.started_on, depreciation.stopped_on)
           before, after = period.split date
 
           depreciation.update! stopped_on: before.stop,
